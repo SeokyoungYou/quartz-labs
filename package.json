@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.6.0",
+    "gl-matrix": "^3.4.3",
     "gsap": "^3.13.0",
     "matter-js": "^0.20.0",
     "motion-utils": "^12.23.6",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/gl-matrix": "^2.4.5",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
