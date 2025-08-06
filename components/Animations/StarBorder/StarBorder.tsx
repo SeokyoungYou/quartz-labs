@@ -6,34 +6,28 @@
 
 import React from "react";
 
-type StarBorderProps<T extends React.ElementType> =
-  React.ComponentPropsWithoutRef<T> & {
-    as?: T;
-    className?: string;
-    children?: React.ReactNode;
-    color?: string;
-    speed?: React.CSSProperties['animationDuration'];
-    thickness?: number;
-  }
+interface StarBorderProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  color?: string;
+  speed?: React.CSSProperties['animationDuration'];
+  thickness?: number;
+}
 
-const StarBorder = <T extends React.ElementType = "button">({
-  as,
+const StarBorder: React.FC<StarBorderProps> = ({
   className = "",
   color = "white",
   speed = "6s",
   thickness = 1,
   children,
+  style,
   ...rest
-}: StarBorderProps<T>) => {
-  const Component = as || "button";
-
+}) => {
   return (
-    <Component 
+    <button 
       className={`relative inline-block overflow-hidden rounded-[20px] ${className}`} 
-      {...(rest as any)}
+      {...rest}
       style={{
         padding: `${thickness}px 0`,
-        ...(rest as any).style,
+        ...style,
       }}
     >
       <div
@@ -53,7 +47,7 @@ const StarBorder = <T extends React.ElementType = "button">({
       <div className="relative z-1 bg-gradient-to-b from-black to-gray-900 border border-gray-800 text-white text-center text-[16px] py-[16px] px-[26px] rounded-[20px]">
         {children}
       </div>
-    </Component>
+    </button>
   );
 };
 

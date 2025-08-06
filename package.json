@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
+    "@react-three/postprocessing": "^3.0.4",
+    "@react-three/rapier": "^2.1.0",
+    "@types/three": "^0.179.0",
     "framer-motion": "^12.6.0",
     "gl-matrix": "^3.4.3",
     "gsap": "^3.13.0",
@@ -16,13 +21,16 @@
     "motion-utils": "^12.23.6",
     "next": "15.4.5",
     "ogl": "^1.0.11",
+    "postprocessing": "^6.37.7",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/gl-matrix": "^2.4.5",
+    "@types/matter-js": "^0.20.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
