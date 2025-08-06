@@ -1,6 +1,3 @@
-import Galaxy from "@/components/Galaxy/Galaxy";
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div
@@ -10,14 +7,6 @@ export default function Home() {
         position: "relative",
       }}
     >
-      <Galaxy
-      // mouseRepulsion={true}
-      // mouseInteraction={true}
-      // density={1.5}
-      // glowIntensity={0.5}
-      // saturation={0.8}
-      // hueShift={240}
-      />
       <div>hi</div>
     </div>
   );
