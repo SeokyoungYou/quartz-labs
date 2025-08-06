@@ -55,12 +55,12 @@ export default function HeroSection() {
       {/* Galaxy background */}
       <div className="absolute inset-0 z-0">
         <Galaxy
-          density={1.5}
-          starSpeed={0.3}
-          glowIntensity={0.4}
+          density={1.0}
+          starSpeed={0.1}
+          glowIntensity={0.15}
           saturation={0.2}
-          twinkleIntensity={0.4}
-          rotationSpeed={0.05}
+          twinkleIntensity={0.2}
+          rotationSpeed={0.02}
           transparent={false}
         />
       </div>

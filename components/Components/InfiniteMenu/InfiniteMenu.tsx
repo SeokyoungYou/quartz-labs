@@ -770,7 +770,7 @@ class InfiniteGridMenu {
     far: 40,
     fov: Math.PI / 4,
     aspect: 1,
-    position: vec3.fromValues(0, 0, 3),
+    position: vec3.fromValues(0, 0, 5.5), // Start further out to show surroundings
     up: vec3.fromValues(0, 1, 0),
     matrices: {
       view: mat4.create(),
@@ -903,6 +903,22 @@ class InfiniteGridMenu {
     this.control = new ArcballControl(this.canvas, (deltaTime) =>
       this.onControlUpdate(deltaTime)
     );
+
+    // Set initial rotation for mobile to show a more interesting arrangement
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      // Rotate slightly on X and Y axes for mobile
+      quat.rotateX(
+        this.control.orientation,
+        this.control.orientation,
+        Math.PI * 0.1
+      );
+      quat.rotateY(
+        this.control.orientation,
+        this.control.orientation,
+        Math.PI * 0.15
+      );
+    }
 
     this.updateCameraMatrix();
     this.updateProjectionMatrix();
@@ -1162,7 +1178,15 @@ class InfiniteGridMenu {
   private onControlUpdate(deltaTime: number): void {
     const timeScale = deltaTime / this.TARGET_FRAME_DURATION + 0.0001;
     let damping = 5 / timeScale;
-    let cameraTargetZ = 3;
+
+    // Make cameraTargetZ responsive based on viewport size
+    const aspectRatio = this.camera.aspect;
+    const baseZ = 4;
+    const responsiveZ =
+      aspectRatio < 1
+        ? baseZ * 1.2 // On mobile/portrait, zoom out more to show multiple items
+        : baseZ * 1.4; // On desktop, more zoom out to show surroundings
+    let cameraTargetZ = responsiveZ;
 
     const isMoving =
       this.control.isPointerDown ||
