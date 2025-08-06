@@ -1,8 +1,9 @@
+"use client";
+
 /*
 	Installed from https://reactbits.dev/ts/tailwind/
 */
 
-"use client";
 import React, { useEffect, useRef } from "react";
 
 interface ColorRGB {
